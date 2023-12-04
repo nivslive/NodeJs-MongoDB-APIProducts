@@ -2,16 +2,20 @@ import express from 'express'
 import Product from '../models/Product'
 import mongoose from 'mongoose';
 import multer from 'multer';
-const upload = multer({
-    dest: '/uploads/'
-});
+
 
 
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {
-
+        cb(null, './uploads/');
+    },
+    filename: function(req, file, cb) {
+        cb(null, new Date().toISOString(), file.originalname);
     }
-}) 
+});
+
+const upload = multer({storage: storage});
+
 const express = express();
 const router = express.Router();
 
