@@ -1,5 +1,4 @@
 import express from 'express'
-import Product from '../models/Product'
 import mongoose from 'mongoose';
 import multer from 'multer';
 import checkAuth from '../middleware/check-auth';

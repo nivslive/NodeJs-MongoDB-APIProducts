@@ -1,3 +1,6 @@
+import User from '../models/User'
+import bcrypt from 'bcrypt';
+
 
 export default class UsersController {
     singup (req, res, next) {   
